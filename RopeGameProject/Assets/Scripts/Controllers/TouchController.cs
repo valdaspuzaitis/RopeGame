@@ -10,7 +10,7 @@ public class TouchController : MonoBehaviour
 
             if (hit && hit.collider.CompareTag("Gem"))
             {
-                hit.collider.GetComponent<GemID>().OnTouch();
+                hit.collider.GetComponent<GemController>().OnTouch();
             }
         }
     }

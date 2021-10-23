@@ -8,10 +8,11 @@ public class RopeController : MonoBehaviour
     [HideInInspector] public Vector2 startPoint;
     [HideInInspector] public Vector2 endPoint;
 
-    private float speed = 200;
+    private float speed;
 
     void Start()
     {
+        speed = LevelManager.Instance.ropeDragSpeed;
         ropeLine.SetPosition(0, startPoint);
         ropeLine.SetPosition(1, startPoint);
         StartCoroutine(MoveLineEndpoint());
@@ -27,6 +28,6 @@ public class RopeController : MonoBehaviour
             ropeLine.SetPosition(0, newPosition);
             yield return null;
         }
-        GameStateEvents.RopeReachedDestination();
+        GameEvents.RopeReachedDestination();
     }
 }

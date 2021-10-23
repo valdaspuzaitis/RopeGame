@@ -197,11 +197,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7442353839779611205}
   - component: {fileID: 7442353839779611323}
-  - component: {fileID: 7442353839779611204}
-  - component: {fileID: 8498918053611333217}
-  - component: {fileID: 7845748041113686655}
+  - component: {fileID: 7184786240951796184}
   m_Layer: 0
-  m_Name: GemStone
+  m_Name: Gem
   m_TagString: Gem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,7 +242,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
---- !u!114 &7442353839779611204
+--- !u!114 &7184786240951796184
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -253,38 +251,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7442353839779611206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3cc8fcea3c9fdf46a87b9fba2566a57, type: 3}
+  m_Script: {fileID: 11500000, guid: d34b3169f4708f440ab51327f7fe6068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visibleGemID: {fileID: 5792217867321463518}
   defaultLook: {fileID: 21300000, guid: d25dd0ce05417d74e86d2ef7526629cd, type: 3}
   selectedLook: {fileID: 21300000, guid: ec42a2111e00f2a4b95ab4e979f9e4f4, type: 3}
---- !u!114 &8498918053611333217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7442353839779611206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba8e619a906e3ce4aa8e90c0127ec32e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberText: {fileID: 5792217867321463518}
---- !u!114 &7845748041113686655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7442353839779611206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d66bfc3369d49fd4ba6e907cabd67975, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   gemID: 0
-  visibleGemID: {fileID: 5792217867321463518}
 --- !u!1 &7464631280114791537
 GameObject:
   m_ObjectHideFlags: 0

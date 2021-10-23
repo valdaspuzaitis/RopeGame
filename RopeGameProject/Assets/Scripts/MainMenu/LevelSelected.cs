@@ -15,6 +15,6 @@ public class LevelSelected : MonoBehaviour
 
     public void LoadLevel()
     {
-        GameStateEvents.LevelSelected(levelIndex);
+        GameEvents.LevelSelected(levelIndex);
     }
 }

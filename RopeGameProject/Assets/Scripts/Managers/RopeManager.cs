@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class RopeManager : Singleton<RopeManager>
 {
+    [Tooltip ("Rope prefab to spawn")]
     [SerializeField] private GameObject rope;
+    [Tooltip("Canvas container to group all spawned Ropes under")]
     [SerializeField] private GameObject levelRopesUIContainer;
 
     [HideInInspector] public GameObject[] existingLevelRopes;
@@ -10,8 +12,8 @@ public class RopeManager : Singleton<RopeManager>
 
     private void Start()
     {
-        GameStateEvents.OnRopeReachDestination += RopeReachedItsDestination;
-        GameStateEvents.OnLevelExit += ClearRopeData;
+        GameEvents.OnRopeReachDestination += RopeReachedItsDestination;
+        GameEvents.OnLevelExit += ClearRopeData;
     }
 
     private void ClearRopeData()
@@ -33,7 +35,7 @@ public class RopeManager : Singleton<RopeManager>
         }
         else if (existingLevelRopes[existingLevelRopes.Length - 1] != null)
         {
-            GameStateEvents.LevelWon();
+            GameEvents.LevelWon();
         }
     }
 
@@ -80,7 +82,7 @@ public class RopeManager : Singleton<RopeManager>
 
     private void OnDestroy()
     {
-        GameStateEvents.OnRopeReachDestination -= RopeReachedItsDestination;
-        GameStateEvents.OnLevelExit -= ClearRopeData;
+        GameEvents.OnRopeReachDestination -= RopeReachedItsDestination;
+        GameEvents.OnLevelExit -= ClearRopeData;
     }
 }

@@ -9,12 +9,12 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        GameStateEvents.OnQuitGame += ExitGame;
+        GameEvents.OnQuitGame += ExitGame;
     }
 
     private void OnDestroy()
     {
-        GameStateEvents.OnQuitGame -= ExitGame;
+        GameEvents.OnQuitGame -= ExitGame;
     }
 
     private void ExitGame()

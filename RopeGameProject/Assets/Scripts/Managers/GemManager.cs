@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class GemManager : Singleton<GemManager>
 {
+    [Tooltip ("Gem prefab to spawn")]
     [SerializeField] private GameObject gem;
+    [Tooltip ("Canvas container to group all spawned Gems under")]
     [SerializeField] private GameObject levelGemsUIContainer;
 
     [HideInInspector] public GameObject[] existingLevelGems;
@@ -14,7 +16,7 @@ public class GemManager : Singleton<GemManager>
 
     private void Start()
     {
-        GameStateEvents.OnLevelExit += ClearGemData;
+        GameEvents.OnLevelExit += ClearGemData;
     }
 
     private void ClearGemData()
@@ -31,7 +33,7 @@ public class GemManager : Singleton<GemManager>
     public void CreateGem(int gemID, float coordinateX, float coordinateY)
     {
         GameObject createdGem = Instantiate(gem);
-        createdGem.GetComponent<GemID>().gemID = gemID;
+        createdGem.GetComponent<GemController>().gemID = gemID;
         createdGem.transform.SetParent(levelGemsUIContainer.transform);
         createdGem.transform.localPosition = new Vector3(coordinateX, coordinateY, gemID / 1000f);
         createdGem.transform.localScale = new Vector2(scaleOfGem, scaleOfGem);
@@ -40,12 +42,12 @@ public class GemManager : Singleton<GemManager>
 
     public void ChangeGemColor(int gemID)
     {
-        existingLevelGems[gemID].GetComponent<GemAppearance>().ChangeSprite();
+        existingLevelGems[gemID].GetComponent<GemController>().ChangeSprite();
     }
 
     public void FadeOutGemID(int gemID)
     {
-        existingLevelGems[gemID].GetComponent<TextFadeOut>().TextDissapear();
+        existingLevelGems[gemID].GetComponent<GemController>().TextDissapear();
     }
 
     public void GemActionOnTouch(int gemID)
@@ -61,6 +63,6 @@ public class GemManager : Singleton<GemManager>
 
     private void OnDestroy()
     {
-        GameStateEvents.OnLevelExit -= ClearGemData;
+        GameEvents.OnLevelExit -= ClearGemData;
     }
 }

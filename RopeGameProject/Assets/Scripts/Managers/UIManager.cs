@@ -3,19 +3,27 @@ using UnityEngine;
 public class UIManager : Singleton<UIManager>
 {
     [SerializeField] private GameObject MainMenu;
+    [Tooltip ("Container under which buttons to choose level are grouped")]
     [SerializeField] private GameObject levelChoose;
+    [Tooltip ("Prefab of button which chooses level")]
     [SerializeField] private GameObject chooseLevelButton;
+    [Tooltip ("Object to display if game data does not contain any levels")]
     [SerializeField] private GameObject noLevelsFound;
+    [Tooltip ("Button to return to main menu")]
     [SerializeField] private GameObject returnToMainMenu;
+    [Tooltip ("Object to display when playwer has won the game")]
     [SerializeField] private GameObject youWonScreen;
+    [Tooltip ("Object to display when level data is corupt and game cannot be created from it")]
+    [SerializeField] private GameObject badLevelData;
 
     private void Start()
     {
-        GameStateEvents.OnLevelStart += GameHasStarted;
-        GameStateEvents.OnLevelExit += MainMenuDisplay;
-        GameStateEvents.OnLevelChoose += ShowLevelChooseItems;
-        GameStateEvents.OnLevelDataLoad += CreateLevelChooseButton;
-        GameStateEvents.OnLevelWin += ShowYouWinScreen;
+        GameEvents.OnLevelStart += GameHasStarted;
+        GameEvents.OnLevelExit += MainMenuDisplay;
+        GameEvents.OnLevelChoose += ShowLevelChooseItems;
+        GameEvents.OnLevelDataLoad += CreateLevelChooseButton;
+        GameEvents.OnLevelWin += ShowYouWinScreen;
+        GameEvents.OnBadLevelData += ShowBadDataScreen;
 
         MainMenuDisplay();
     }
@@ -25,6 +33,7 @@ public class UIManager : Singleton<UIManager>
         MainMenu.SetActive(true);
         returnToMainMenu.SetActive(false);
         youWonScreen.SetActive(false);
+        badLevelData.SetActive(false);
     }
 
     private void GameHasStarted()
@@ -41,6 +50,11 @@ public class UIManager : Singleton<UIManager>
     private void ShowLevelChooseItems()
     {
         levelChoose.SetActive(true);
+    }
+
+    private void ShowBadDataScreen()
+    {
+        badLevelData.SetActive(true);
     }
 
     private void CreateLevelChooseButton(int amountOfLevels)
@@ -76,10 +90,11 @@ public class UIManager : Singleton<UIManager>
 
     private void OnDestroy()
     {
-        GameStateEvents.OnLevelStart -= GameHasStarted;
-        GameStateEvents.OnLevelExit -= MainMenuDisplay;
-        GameStateEvents.OnLevelChoose -= ShowLevelChooseItems;
-        GameStateEvents.OnLevelDataLoad -= CreateLevelChooseButton;
-        GameStateEvents.OnLevelWin -= ShowYouWinScreen;
+        GameEvents.OnLevelStart -= GameHasStarted;
+        GameEvents.OnLevelExit -= MainMenuDisplay;
+        GameEvents.OnLevelChoose -= ShowLevelChooseItems;
+        GameEvents.OnLevelDataLoad -= CreateLevelChooseButton;
+        GameEvents.OnLevelWin -= ShowYouWinScreen;
+        GameEvents.OnBadLevelData -= ShowBadDataScreen;
     }
 }

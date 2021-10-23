@@ -4,6 +4,6 @@ public class ReturnToMainMenu : MonoBehaviour
 {
     public void GoToMainMenu()
     {
-        GameStateEvents.LevelExit();
+        GameEvents.LevelExit();
     }
 }

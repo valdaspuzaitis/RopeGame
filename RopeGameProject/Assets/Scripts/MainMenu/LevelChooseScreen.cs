@@ -4,6 +4,6 @@ public class LevelChooseScreen : MonoBehaviour
 {
     public void ChooseLevel()
     {
-        GameStateEvents.ChooseLevel();
+        GameEvents.ChooseLevel();
     }
 }
