@@ -1,25 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
 using System;
 
 public class LoadFile : DataRetrieve
 {
-    [SerializeField]
-    private string pathToFile = "Assets/Level Load Data/level_data.json";
+    public string fileName = "level_data";
     public override string ReadData()
     {
-        if (!string.IsNullOrEmpty(pathToFile))
+        if (!string.IsNullOrEmpty(fileName))
         {
-            StreamReader reader = new StreamReader(pathToFile);
-            string fullContent = reader.ReadToEnd();
-            reader.Close();
+            string fullContent = Resources.Load<TextAsset>(fileName).ToString();
             return fullContent;
         }
         else
         {
             throw new ArgumentException("Path to file is empty.", "pathToFile");
-        }        
+        }
     }
 }

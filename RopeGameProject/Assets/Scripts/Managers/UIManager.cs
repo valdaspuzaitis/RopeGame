@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : Singleton<UIManager>
@@ -12,54 +10,38 @@ public class UIManager : Singleton<UIManager>
     private GameObject chooseLevelButton;
     [SerializeField]
     private GameObject noLevelsFound;
-
     [SerializeField]
     private GameObject returnToMainMenu;
-
     [SerializeField]
     private GameObject youWonScreen;
 
     private void Start()
     {
-        GameStateEvents.OnLevelStart += HideMainMenu;
-        GameStateEvents.OnLevelStart += ShowReturnToMainMenu;
-        GameStateEvents.OnLevelExit += ShowMainMenu;
-        GameStateEvents.OnLevelExit += HideReturnToMainMenu;
-        GameStateEvents.OnLevelExit += HideYouWinScreen;
+        GameStateEvents.OnLevelStart += GameHasStarted;
+        GameStateEvents.OnLevelExit += MainMenuDisplay;
         GameStateEvents.OnLevelChoose += ShowLevelChooseItems;
         GameStateEvents.OnLevelDataLoad += CreateLevelChooseButton;
         GameStateEvents.OnLevelWin += ShowYouWinScreen;
 
-        HideReturnToMainMenu();
-        HideYouWinScreen();
+        MainMenuDisplay();
     }
 
-    private void ShowMainMenu()
+    private void MainMenuDisplay()
     {
         MainMenu.SetActive(true);
+        returnToMainMenu.SetActive(false);
+        youWonScreen.SetActive(false);
     }
-    private void HideMainMenu()
+
+    private void GameHasStarted()
     {
         MainMenu.SetActive(false);
-    }
-
-    private void HideReturnToMainMenu()
-    {
-        returnToMainMenu.SetActive(false);
-    }
-
-    private void ShowReturnToMainMenu()
-    {
         returnToMainMenu.SetActive(true);
     }
 
     private void ShowYouWinScreen()
     {
         youWonScreen.SetActive(true);
-    }
-    private void HideYouWinScreen()
-    {
-        youWonScreen.SetActive(false);
     }
 
     private void ShowLevelChooseItems()
@@ -100,11 +82,8 @@ public class UIManager : Singleton<UIManager>
 
     private void OnDestroy()
     {
-        GameStateEvents.OnLevelStart -= HideMainMenu;
-        GameStateEvents.OnLevelStart -= ShowReturnToMainMenu;
-        GameStateEvents.OnLevelExit -= ShowMainMenu;
-        GameStateEvents.OnLevelExit -= HideReturnToMainMenu;
-        GameStateEvents.OnLevelExit -= HideYouWinScreen;
+        GameStateEvents.OnLevelStart -= GameHasStarted;
+        GameStateEvents.OnLevelExit -= MainMenuDisplay;
         GameStateEvents.OnLevelChoose -= ShowLevelChooseItems;
         GameStateEvents.OnLevelDataLoad -= CreateLevelChooseButton;
         GameStateEvents.OnLevelWin -= ShowYouWinScreen;

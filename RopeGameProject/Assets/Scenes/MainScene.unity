@@ -1120,7 +1120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8d8f3b883af1f4eb70d1a349ec1380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathToFile: Assets/Level Load Data/level_data.json
+  fileName: level_data
 --- !u!1 &837245107
 GameObject:
   m_ObjectHideFlags: 0
