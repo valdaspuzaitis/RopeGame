@@ -110,7 +110,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7442353839755851422}
   - component: {fileID: 7442353839755851421}
-  - component: {fileID: 56108785094244751}
   m_Layer: 0
   m_Name: Appearence
   m_TagString: Gem
@@ -176,7 +175,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: d25dd0ce05417d74e86d2ef7526629cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -188,17 +187,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!210 &56108785094244751
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7442353839755851423}
-  m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
 --- !u!1 &7442353839779611206
 GameObject:
   m_ObjectHideFlags: 0

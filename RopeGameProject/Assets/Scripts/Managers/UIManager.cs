@@ -16,22 +16,31 @@ public class UIManager : Singleton<UIManager>
     [SerializeField]
     private GameObject returnToMainMenu;
 
+    [SerializeField]
+    private GameObject youWonScreen;
+
     private void Start()
     {
         GameStateEvents.OnLevelStart += HideMainMenu;
         GameStateEvents.OnLevelStart += ShowReturnToMainMenu;
         GameStateEvents.OnLevelExit += ShowMainMenu;
         GameStateEvents.OnLevelExit += HideReturnToMainMenu;
+        GameStateEvents.OnLevelExit += HideYouWinScreen;
         GameStateEvents.OnLevelChoose += ShowLevelChooseItems;
         GameStateEvents.OnLevelDataLoad += CreateLevelChooseButton;
+        GameStateEvents.OnLevelWin += ShowYouWinScreen;
 
         HideReturnToMainMenu();
+        HideYouWinScreen();
     }
 
     private void ShowMainMenu()
     {
         MainMenu.SetActive(true);
-
+    }
+    private void HideMainMenu()
+    {
+        MainMenu.SetActive(false);
     }
 
     private void HideReturnToMainMenu()
@@ -44,9 +53,13 @@ public class UIManager : Singleton<UIManager>
         returnToMainMenu.SetActive(true);
     }
 
-    private void HideMainMenu()
+    private void ShowYouWinScreen()
     {
-        MainMenu.SetActive(false);
+        youWonScreen.SetActive(true);
+    }
+    private void HideYouWinScreen()
+    {
+        youWonScreen.SetActive(false);
     }
 
     private void ShowLevelChooseItems()
@@ -88,8 +101,12 @@ public class UIManager : Singleton<UIManager>
     private void OnDestroy()
     {
         GameStateEvents.OnLevelStart -= HideMainMenu;
+        GameStateEvents.OnLevelStart -= ShowReturnToMainMenu;
         GameStateEvents.OnLevelExit -= ShowMainMenu;
+        GameStateEvents.OnLevelExit -= HideReturnToMainMenu;
+        GameStateEvents.OnLevelExit -= HideYouWinScreen;
         GameStateEvents.OnLevelChoose -= ShowLevelChooseItems;
         GameStateEvents.OnLevelDataLoad -= CreateLevelChooseButton;
+        GameStateEvents.OnLevelWin -= ShowYouWinScreen;
     }
 }

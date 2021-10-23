@@ -6,6 +6,7 @@ public static class GameStateEvents
 {
     public delegate void GameStateChange();
     public delegate void GemAction(int gemID);
+    public delegate void RopeAction();
     public delegate void LevelSelect(int level);
 
     public static event LevelSelect OnLevelSelect;
@@ -16,6 +17,7 @@ public static class GameStateEvents
     public static event GameStateChange OnLevelExit;
     public static event GameStateChange OnQuitGame;
     public static event GemAction OnGemTouch;
+    public static event RopeAction OnRopeReachDestination;
 
     public static void LevelSelected(int levelIndex)
     {
@@ -54,5 +56,10 @@ public static class GameStateEvents
     public static void GemWasTouched(int gemID)
     {
         OnGemTouch?.Invoke(gemID);
+    }
+
+    public static void RopeReachedDestination()
+    {
+        OnRopeReachDestination?.Invoke();
     }
 }
