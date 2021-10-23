@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public static class GameStateEvents
 {
     public delegate void GameStateChange();

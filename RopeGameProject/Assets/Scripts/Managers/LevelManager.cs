@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
@@ -56,7 +55,6 @@ public class LevelManager : Singleton<LevelManager>
         allLevelsData = JsonConvert.DeserializeObject<AllLevels>(readDataMethod.ReadData());
 
         GameStateEvents.LevelDataLoaded(allLevelsData.levels.Count);
-        Debug.Log(allLevelsData.levels.Count);
     }
 
     private void ConstructScreenCoordinatesUnits()
@@ -107,7 +105,6 @@ public class LevelManager : Singleton<LevelManager>
         else if (existingLevelRopes[existingLevelRopes.Length - 1] != null)
         {
             GameStateEvents.LevelWon();
-            Debug.Log("Game is Won");
         }
     }
 
@@ -133,7 +130,6 @@ public class LevelManager : Singleton<LevelManager>
         createdRope.transform.SetParent(levelRopesUIContainer.transform);
         createdRope.transform.localPosition = Vector3.one;
         createdRope.transform.localScale = Vector3.one;
-        Debug.Log(ropeID);
         existingLevelRopes[ropeID] = createdRope;
 
         noRopeInTransit = false;

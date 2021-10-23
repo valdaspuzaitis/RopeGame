@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RopeController : MonoBehaviour
@@ -13,7 +12,7 @@ public class RopeController : MonoBehaviour
     public Vector2 endPoint;
 
     private float speed = 200;
-    // Start is called before the first frame update
+
     void Start()
     {
         ropeLine.SetPosition(0, startPoint);
@@ -24,7 +23,7 @@ public class RopeController : MonoBehaviour
     IEnumerator MoveLineEndpoint()
     {
         Vector2 currentCoordinates = ropeLine.GetPosition(0);
-        while(Vector2.Distance(currentCoordinates, endPoint) > 1)
+        while (Vector2.Distance(currentCoordinates, endPoint) > 1)
         {
             currentCoordinates = ropeLine.GetPosition(0);
             Vector2 newPosition = Vector2.MoveTowards(currentCoordinates, endPoint, speed * Time.deltaTime);
