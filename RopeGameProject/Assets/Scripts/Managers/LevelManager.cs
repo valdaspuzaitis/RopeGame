@@ -73,7 +73,7 @@ public class LevelManager : Singleton<LevelManager>
 
     private void TakeActionsOnGem(int gemID)
     {
-        if (CanGemChange(gemID) || gemID == 0)
+        if (CanGemChange(gemID))
         {
             GemManager.Instance.GemActionOnTouch(gemID);
             nextSelectedGemID++;
