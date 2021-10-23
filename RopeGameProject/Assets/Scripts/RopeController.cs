@@ -3,13 +3,10 @@ using UnityEngine;
 
 public class RopeController : MonoBehaviour
 {
-    [SerializeField]
-    private LineRenderer ropeLine;
+    [SerializeField] private LineRenderer ropeLine;
 
-    [HideInInspector]
-    public Vector2 startPoint;
-    [HideInInspector]
-    public Vector2 endPoint;
+    [HideInInspector] public Vector2 startPoint;
+    [HideInInspector] public Vector2 endPoint;
 
     private float speed = 200;
 

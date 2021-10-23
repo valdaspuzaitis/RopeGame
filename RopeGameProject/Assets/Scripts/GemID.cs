@@ -3,11 +3,10 @@ using TMPro;
 
 public class GemID : MonoBehaviour
 {
-    [HideInInspector]
-    public int gemID;
+    [SerializeField] private TextMeshProUGUI visibleGemID;
 
-    [SerializeField]
-    private TextMeshProUGUI visibleGemID;
+    [HideInInspector] public int gemID;
+
     private void Start()
     {
         int gemsVisibleIdNumber = gemID + 1;

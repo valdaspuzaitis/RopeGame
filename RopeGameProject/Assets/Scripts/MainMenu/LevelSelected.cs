@@ -3,11 +3,9 @@ using TMPro;
 
 public class LevelSelected : MonoBehaviour
 {
-    [HideInInspector]
-    public int levelIndex;
+    [SerializeField] private TextMeshProUGUI levelName;
 
-    [SerializeField]
-    private TextMeshProUGUI levelName;
+    [HideInInspector] public int levelIndex;
 
     private void Start()
     {

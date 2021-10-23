@@ -2,18 +2,12 @@ using UnityEngine;
 
 public class UIManager : Singleton<UIManager>
 {
-    [SerializeField]
-    private GameObject MainMenu;
-    [SerializeField]
-    private GameObject levelChoose;
-    [SerializeField]
-    private GameObject chooseLevelButton;
-    [SerializeField]
-    private GameObject noLevelsFound;
-    [SerializeField]
-    private GameObject returnToMainMenu;
-    [SerializeField]
-    private GameObject youWonScreen;
+    [SerializeField] private GameObject MainMenu;
+    [SerializeField] private GameObject levelChoose;
+    [SerializeField] private GameObject chooseLevelButton;
+    [SerializeField] private GameObject noLevelsFound;
+    [SerializeField] private GameObject returnToMainMenu;
+    [SerializeField] private GameObject youWonScreen;
 
     private void Start()
     {

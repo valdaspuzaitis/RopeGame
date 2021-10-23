@@ -123,6 +123,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &42529615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42529616}
+  - component: {fileID: 42529617}
+  m_Layer: 0
+  m_Name: GemManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &42529616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42529615}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.29272246, y: 0.4202363, z: -1.5664682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &42529617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42529615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3c61d0a6a031646a781ab4c12d971f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gem: {fileID: 7442353839779611206, guid: 44e257b663f28fd469f380a9ce33ce70, type: 3}
+  levelGemsUIContainer: {fileID: 2105601587}
+  existingLevelGems: []
+  scaleOfGem: 0
 --- !u!1 &46209784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,6 +1057,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31b6afbab6327074ebb57d88a1617d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &652706078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 652706079}
+  - component: {fileID: 652706080}
+  - component: {fileID: 652706081}
+  m_Layer: 0
+  m_Name: RopeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &652706079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652706078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.29272246, y: 0.4202363, z: -1.5664682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &652706080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652706078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3c61d0a6a031646a781ab4c12d971f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gem: {fileID: 0}
+  levelGemsUIContainer: {fileID: 0}
+  existingLevelGems: []
+  scaleOfGem: 0
+--- !u!114 &652706081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652706078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2460f274e76bb42a4cda9891aed119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rope: {fileID: 588491865297895527, guid: 4c161bd71218a9a4a882f8fa2b88bf93, type: 3}
+  levelRopesUIContainer: {fileID: 851088861}
+  existingLevelRopes: []
+  noRopeInTransit: 1
 --- !u!1 &704619935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1089,11 +1200,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   readDataMethod: {fileID: 813451671}
-  gem: {fileID: 7442353839779611206, guid: 44e257b663f28fd469f380a9ce33ce70, type: 3}
-  rope: {fileID: 588491865297895527, guid: 4c161bd71218a9a4a882f8fa2b88bf93, type: 3}
-  levelGemsUIContainer: {fileID: 2105601587}
-  levelRopesUIContainer: {fileID: 851088861}
   fullScreenSize: {fileID: 63265976}
+  nextSelectedGemID: 0
 --- !u!4 &813451670
 Transform:
   m_ObjectHideFlags: 0

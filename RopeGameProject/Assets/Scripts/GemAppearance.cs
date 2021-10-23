@@ -1,14 +1,9 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GemAppearance : MonoBehaviour
 {
-    [SerializeField]
-    private Sprite defaultLook;
-    [SerializeField]
-    private Sprite selectedLook;
-
-    private Image appearance;
+    [SerializeField] private Sprite defaultLook;
+    [SerializeField] private Sprite selectedLook;
 
     private SpriteRenderer gemRenderer;
 

@@ -4,8 +4,7 @@ using TMPro;
 
 public class TextFadeOut : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshProUGUI numberText;
+    [SerializeField] private TextMeshProUGUI numberText;
 
     public void TextDissapear()
     {

@@ -4,11 +4,8 @@ using System;
 
 public class ChangenName : MonoBehaviour
 {
-    [SerializeField]
-    private string newName;
-
-    [SerializeField]
-    private TextMeshProUGUI nameToChange;
+    [SerializeField] private string newName;
+    [SerializeField] private TextMeshProUGUI nameToChange;
 
     public void EnactChange()
     {
