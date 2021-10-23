@@ -21,7 +21,7 @@ public class UIManager : Singleton<UIManager>
         GameEvents.OnLevelStart += GameHasStarted;
         GameEvents.OnLevelExit += MainMenuDisplay;
         GameEvents.OnLevelChoose += ShowLevelChooseItems;
-        GameEvents.OnLevelDataLoad += CreateLevelChooseButton;
+        GameEvents.OnLevelDataLoad += CreateLevelChooseButtons;
         GameEvents.OnLevelWin += ShowYouWinScreen;
         GameEvents.OnBadLevelData += ShowBadDataScreen;
 
@@ -57,7 +57,7 @@ public class UIManager : Singleton<UIManager>
         badLevelData.SetActive(true);
     }
 
-    private void CreateLevelChooseButton(int amountOfLevels)
+    private void CreateLevelChooseButtons(int amountOfLevels)
     {
         DestroyLevelChooseButtons();
         if (amountOfLevels > 0)
@@ -93,7 +93,7 @@ public class UIManager : Singleton<UIManager>
         GameEvents.OnLevelStart -= GameHasStarted;
         GameEvents.OnLevelExit -= MainMenuDisplay;
         GameEvents.OnLevelChoose -= ShowLevelChooseItems;
-        GameEvents.OnLevelDataLoad -= CreateLevelChooseButton;
+        GameEvents.OnLevelDataLoad -= CreateLevelChooseButtons;
         GameEvents.OnLevelWin -= ShowYouWinScreen;
         GameEvents.OnBadLevelData -= ShowBadDataScreen;
     }

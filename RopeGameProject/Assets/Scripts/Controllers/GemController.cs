@@ -5,7 +5,6 @@ using TMPro;
 public class GemController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI visibleGemID;
-
     [SerializeField] private Sprite defaultLook;
     [SerializeField] private Sprite selectedLook;
 
@@ -21,6 +20,7 @@ public class GemController : MonoBehaviour
         gemRenderer = GetComponentInChildren<SpriteRenderer>();
         gemRenderer.sprite = defaultLook;
     }
+
     public void OnTouch()
     {
         GameEvents.GemWasTouched(gemID);

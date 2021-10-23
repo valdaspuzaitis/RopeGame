@@ -25,26 +25,21 @@ public class RopeManager : Singleton<RopeManager>
     private void RopeReachedItsDestination()
     {
         noRopeInTransit = true;
-        if (existingLevelRopes[existingLevelRopes.Length - 2] != null && existingLevelRopes[existingLevelRopes.Length - 1] == null)
+
+        int amountOfPossibleRopes = existingLevelRopes.Length;
+        if (existingLevelRopes[amountOfPossibleRopes - 2] != null && existingLevelRopes[amountOfPossibleRopes - 1] == null)
         {
             AddLastRope(LevelManager.Instance.nextSelectedGemID);
         }
-        else if (existingLevelRopes[existingLevelRopes.Length - 2] == null)
+        else if (existingLevelRopes[amountOfPossibleRopes - 2] == null)
         {
             BeginNextRope();
         }
-        else if (existingLevelRopes[existingLevelRopes.Length - 1] != null)
+        else if (existingLevelRopes[amountOfPossibleRopes - 1] != null)
         {
             GameEvents.LevelWon();
         }
     }
-
-    private void AddLastRope(int nextSelectedGemID)
-    {
-        int ropeID = nextSelectedGemID - 1;
-        CreateRope(ropeID, GenerateEndpointsForRope(GemManager.Instance.existingLevelGems[ropeID], GemManager.Instance.existingLevelGems[0]));
-    }
-
     public void BeginNextRope()
     {
         if (GemManager.Instance.gemsToDrawRopeTo.Count != 0 && noRopeInTransit)
@@ -53,6 +48,12 @@ public class RopeManager : Singleton<RopeManager>
             CreateRope(nextGemID - 1, GenerateEndpointsForRope(GemManager.Instance.existingLevelGems[nextGemID - 1], GemManager.Instance.existingLevelGems[nextGemID]));
         }
     }
+
+    private void AddLastRope(int nextSelectedGemID)
+    {
+        int ropeID = nextSelectedGemID - 1;
+        CreateRope(ropeID, GenerateEndpointsForRope(GemManager.Instance.existingLevelGems[ropeID], GemManager.Instance.existingLevelGems[0]));
+    }    
 
     private void CreateRope(int ropeID, Vector2[] ropeEndpointCoordinates)
     {

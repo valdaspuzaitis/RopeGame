@@ -10,6 +10,7 @@ public class LevelManager : Singleton<LevelManager>
     public float ropeDragSpeed = 200f;
 
     [HideInInspector] public int nextSelectedGemID;
+
     private float screenUnit;
     private float screenSizeCorrection;
 
@@ -53,6 +54,7 @@ public class LevelManager : Singleton<LevelManager>
             GameEvents.BadLevelData();
         }
     }
+
     private void ConstructScreenCoordinateUnits()
     {
         RectTransform screenSize = fullScreenSize.GetComponent<RectTransform>();
