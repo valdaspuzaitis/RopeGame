@@ -10,6 +10,8 @@ public class RopeManager : Singleton<RopeManager>
     [HideInInspector] public GameObject[] existingLevelRopes;
     [HideInInspector] public bool noRopeInTransit = true;
 
+    public float ropeDragSpeed = 200f;
+
     private void Start()
     {
         GameEvents.OnRopeReachDestination += RopeReachedItsDestination;

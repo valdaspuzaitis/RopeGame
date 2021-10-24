@@ -12,7 +12,7 @@ public class RopeController : MonoBehaviour
 
     void Start()
     {
-        speed = LevelManager.Instance.ropeDragSpeed;
+        speed = RopeManager.Instance.ropeDragSpeed;
         ropeLine.SetPosition(0, startPoint);
         ropeLine.SetPosition(1, startPoint);
         StartCoroutine(MoveLineEndpoint());

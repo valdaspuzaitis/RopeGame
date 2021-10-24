@@ -6,8 +6,7 @@ public class LevelManager : Singleton<LevelManager>
     [Tooltip ("Class inheriting from \"DataRetrieve\" to load game data")]
     [SerializeField] private DataRetrieve readDataMethod;
     [Tooltip("Element to calculate screen size from, preferred \"Canvas\"")]
-    [SerializeField] private GameObject fullScreenSize;
-    public float ropeDragSpeed = 200f;
+    [SerializeField] private GameObject fullScreenSize;    
 
     [HideInInspector] public int nextSelectedGemID;
 
